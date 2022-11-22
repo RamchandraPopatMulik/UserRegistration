@@ -78,5 +78,21 @@ namespace User_Registration
                 CheckValidMobile();
             }
         }
+        public void ValidatePassword()
+        {
+            Console.WriteLine("Please Enter Password  : ");
+            string password = Console.ReadLine();
+            Regex pass = new Regex("^[A-za-z0-9]{8,}");
+            bool matches = pass.IsMatch(password);
+            if (matches == true)
+            {
+                Console.WriteLine($"{password} is Valid Password");
+            }
+            else
+            {
+                Console.WriteLine($"Please Enter Valid Password {password}");
+                ValidatePassword();
+            }
+        }
     }
 }

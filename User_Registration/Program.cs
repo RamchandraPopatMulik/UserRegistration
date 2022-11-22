@@ -6,7 +6,7 @@
         {
             
             User user = new User();
-            user.CheckValidMobile();
+            user.ValidatePassword();
         }
     }
 }
