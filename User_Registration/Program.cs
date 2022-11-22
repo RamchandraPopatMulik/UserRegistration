@@ -6,7 +6,8 @@
         {
             
             User user = new User();
-            user.ValidatePassword();
+            
+            user.Sample();
         }
     }
 }
