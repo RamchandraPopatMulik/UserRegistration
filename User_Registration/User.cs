@@ -86,11 +86,11 @@ namespace User_Registration
             bool matches = pass.IsMatch(password);
             if (matches == true)
             {
-                Console.WriteLine($"{password} is Valid Password");
+                Console.WriteLine($" {password} is Valid Password ");
             }
             else
             {
-                Console.WriteLine($"Please Enter Valid Password {password}");
+                Console.WriteLine($" Please Enter Valid Password {password} ");
                 ValidatePassword();
             }
         }
