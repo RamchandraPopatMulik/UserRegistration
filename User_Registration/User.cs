@@ -11,33 +11,53 @@ namespace User_Registration
     public class User
     {
         bool pass = false;
-        public void Input()
+        public void UserInputName()
         {
-            if(pass == false)
+            if (pass == false)
             {
-                Console.Write("Please Enter First Name : ");
-                string firstname = Console.ReadLine();
-                FirstName(firstname);
+                Console.Write("Enter First Name : ");
+                string firstName = Console.ReadLine();
+                FirstNameAndLastName(firstName);
             }
-            if(pass=true)
+            if (pass == true)
             {
-                Console.Write("Please Enter Last Name : ");
-                string lastname = Console.ReadLine();
-                FirstName(lastname);
+                Console.Write("Enter Last Name : ");
+                string LastName = Console.ReadLine();
+                FirstNameAndLastName(LastName);
             }
         }
-        public void FirstName(string name)
+        public void FirstNameAndLastName(string Name)
         {
-            Regex firstName = new Regex(@"^([A-z]{1}[a-z]{2,})$");
-            bool matches = firstName.IsMatch(name);
-
-            if(matches == true)
+            Regex firstLastName = new Regex(@"^([A-z]{1}[a-z]{2,})$");
+            bool matches = firstLastName.IsMatch(Name);
+            if (matches == true)
             {
-                Console.WriteLine($" {name} is Valid ");
+                pass = true;
+                Console.WriteLine($"{Name} is Valid Name");
+                return;
             }
             else
             {
-                Console.WriteLine($" {name} is InValid ");
+                Console.WriteLine($"Please Enter Valid Name {Name}");
+                UserInputName();
+            }
+        }
+        public void Email()
+        {
+            Console.Write("Enter Email ID : ");
+            string email = Console.ReadLine();
+            Regex emailID = new Regex(@"^(abc)[a-zA-Z0-9_\+\-\.]*[@](bl)*[.](co)*[.][a-z]{2}$");
+            bool matches = emailID.IsMatch(email);
+            if (matches == true)
+            {
+                pass = true;
+                Console.WriteLine($"{email} is Valid Email");
+                return;
+            }
+            else
+            {
+                Console.WriteLine($"Please Enter Valid Email {email}");
+                Email();
             }
         }
     }
